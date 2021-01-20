@@ -1,0 +1,51 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+    <title>
+        Noy's Mine Sweeper Game
+    </title>
+
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body onload="init()">
+<!-- <body> -->
+
+    <div class="toolbar">
+        <h1>Mine Sweeper</h1>
+    </div>
+
+    <div class="levels-container">
+        <button class="level-easy" onclick="chooseLevel('easy')">easy</button>
+        <button class="level-medium" onclick="chooseLevel('medium')">medium</button>
+        <button class="level-extreme" onclick="chooseLevel('hard')">hard</button>
+    </div>
+
+    <button class="game-stater" onclick="gameStarter()">
+            😃
+    </button>
+
+    <div class="game-info">
+        <div class="best-score">Best-Score:</div>
+        <div class="timer"> 00:00:00 </div>
+        <div class="smiley" onclick=""></div>
+    </div>
+
+    <div class="board-container">
+
+    </div>
+
+    <div class="modal-container">
+        <div class="result"></div>
+        <button class="restart" onclick="restart()">restart</button>
+        <div class="best-time">your best time is: </div>
+    </div>
+
+
+
+    <script src="js/util.js"></script>
+    <script src="js/game.js"></script>
+</body>
+
+
+
+</html>
