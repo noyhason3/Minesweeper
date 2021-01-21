@@ -12,11 +12,13 @@ function renderBoard(mat, selector) {
   var elContainer = document.querySelector(selector);
   elContainer.innerHTML = strHTML;
 }
+
 function startTimer() {
-  isTimerOn = true;
+  gIsTimerOn = true;
   startTime = Date.now();
   timer();
 }
+
 function timer() {
   var endTime = Date.now();
   var diffTime = endTime - startTime;
@@ -29,24 +31,41 @@ function timer() {
   minutes = minutes < 10 ? '0' + minutes : minutes;
   seconds = seconds < 10 ? '0' + seconds : seconds;
 
-  secondsForScore = Math.floor((diffTime /= 1000));
+  gNewScore = Math.floor((diffTime /= 1000));
 
-  if (isTimerOn) {
+  if (gIsTimerOn) {
     window.setTimeout(timer, 1000);
 
-    timeDisplay = document.querySelector('.timer').innerHTML =
+    gTimeDisplay = document.querySelector('.timer').innerHTML =
       hours + ':' + minutes + ':' + seconds;
-    newScore = secondsForScore;
   }
 }
+
 function stopTimer() {
-  isTimerOn = false;
-  document.querySelector('.timer').innerHTML = 'your time is: ' + timeDisplay;
+  gIsTimerOn = false;
+  document.querySelector('.timer').innerHTML = 'your time is: ' + gTimeDisplay;
 }
 
+function checkBestScore(){
+  var bestScore = extractFromLocalStorage('bestScore');
+  if (bestScore && gNewScore<bestScore || !bestScore){
+    bestScore = gNewScore;
+  }
+  saveToLocalStorage('bestScore', bestScore )
+  extractFromLocalStorage('bestScore')
+}
 
-//--------------------------------------------
+function saveToLocalStorage(key, value){
+  return localStorage.setItem(key, value);
+}
 
+function extractFromLocalStorage(key){
+  return localStorage.getItem(key);
+}
+
+function removeFromLocalStorage(key){
+  return localStorage.removeItem(key);
+}
 
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
