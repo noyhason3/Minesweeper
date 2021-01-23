@@ -14,24 +14,24 @@
     </div>
 
     <div class="levels-container">
-        <button class="level-easy" onclick="chooseLevel('easy')">easy</button>
-        <button class="level-medium" onclick="chooseLevel('medium')">medium</button>
-        <button class="level-extreme" onclick="chooseLevel('hard')">hard</button>
+        <button class="level-easy" onclick="chooseLevel('easy', this)">easy</button>
+        <button class="level-medium" onclick="chooseLevel('medium', this)">medium</button>
+        <button class="level-extreme" onclick="chooseLevel('hard', this)">hard</button>
     </div>
 
     <div class="game-info">
         <div class="mines-count">Mines in game : <span>X</span> 💥 </div>
         <div class="lives">lives left : <span>X</span> ❤ </div>
-        <div class="best-score">Best-Score: <span></span></div>
+        <div class="best-score">Best-Score: ✌ <span></span></div>
         <div class="timer"> 00:00:00 </div>
     </div>
-    ------------------------------------------------
+    <!-- ------------------------------------------------ -->
     <div class="game-tools">
 
         <div class="game-starter" onclick="restart()"> 😃 </div>
-        <div class="hints" onclick="getHint(this)"> hints: <span data-id="1">X</span>   <span data-id="2">X</span>   <span data-id="3">X</span> </div>
+        <div class="hints" onclick="getHint(this)"> hints: <span data-id="1"><img src="img/hint.png"></span>   <span data-id="2"><img src="img/hint.png"></span>   <span data-id="3"><img src="img/hint.png"></span> </div>
         <button class="safe-click-btn" onclick="safeClick()">Safe-Click</button>
-        <div class="safe-click-count">you have <span>X</span> safe-clicks left</div>
+        <div class="safe-click-count"><span>X</span> safe-clicks left</div>
         <button class="undo" onclick="undo()"> UNDO  </button>
 
     </div>
